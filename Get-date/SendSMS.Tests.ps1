@@ -1,13 +1,14 @@
 
-. .\SendSMS.ps1
-
+BeforeAll {
+    .$PSScriptRoot/SendSMS.ps1
+}
 
 <#
     Testing the function GetCurrentWeekNumbe
 #>
 Describe 'Get CurrentWeek Number' {
     it 'outputs the week number' {
-        GetCurrentWeekNumber | Should be 41
+        GetCurrentWeekNumber | Should -be 41
 }
 
 <#
@@ -15,7 +16,7 @@ Describe 'Get CurrentWeek Number' {
 #>
 Describe 'Gets the Hire Date'{
     it 'outputs new hire start date' {
-        Get-HireDate -Hiredate 06/10/2020 | Should be 06/10/2020
+        Get-HireDate -Hiredate 06/10/2020 | Should -be 06/10/2020
     }
 }
 
@@ -37,8 +38,8 @@ Describe 'Mock AD user account' {
     }
     it 'returns requested AD properties' {
         $Users = AdProperties
-        $Users.Name | Should be 'Princess Entrapta'
-        $Users.Enabled | Should be False
+        $Users.Name | Should -be 'Princess Entrapta'
+        $Users.Enabled | Should -be False
     }
 
 }
@@ -64,8 +65,8 @@ Describe 'Rename An AD account' {
     }
     it 'ReName Account to Hordak' {
         $Users = RenameAccount -Surname Hordak
-        $Users.Surname | Should be Hodak
-        $Users.Enabled | Should be False
+        $Users.Surname | Should -be Hodak
+        $Users.Enabled | Should -be False
     }
 
 }
