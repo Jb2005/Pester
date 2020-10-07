@@ -1,17 +1,27 @@
 
 . .\SendSMS.ps1
 
+
+<#
+    Testing the function GetCurrentWeekNumbe
+#>
 Describe 'Get CurrentWeek Number' {
     it 'outputs the week number' {
         GetCurrentWeekNumber | Should be 41
 }
 
+<#
+    Testing the function Get-HireDate
+#>
 Describe 'Gets the Hire Date'{
     it 'outputs new hire start date' {
         Get-HireDate -Hiredate 06/10/2020 | Should be 06/10/2020
     }
 }
 
+<#
+    Testing the function AdProperties
+#>
 Describe 'Mock AD user account' {
     mock -CommandName 'Get-ADUser' -MockWith {
         
@@ -34,6 +44,9 @@ Describe 'Mock AD user account' {
 }
 }
 
+<#
+    Testing the function RenameAccount
+#>
 ###################################################
 
 Describe 'Rename An AD account' {
@@ -56,3 +69,7 @@ Describe 'Rename An AD account' {
     }
 
 }
+
+<#
+    Testing the function
+#>
